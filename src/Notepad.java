@@ -281,8 +281,7 @@ public class Notepad implements ActionListener, MenuConstants {
     }
 
     ////////////////////////////////////
-    JCheckBoxMenuItem createCheckBoxMenuItem(String s,
-                                             int key, JMenu toMenu, ActionListener al) {
+    JCheckBoxMenuItem createCheckBoxMenuItem(String s, int key, JMenu toMenu, ActionListener al) {
         JCheckBoxMenuItem temp = new JCheckBoxMenuItem(s);
         temp.setMnemonic(key);
         temp.addActionListener(al);
