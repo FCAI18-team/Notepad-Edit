@@ -30,8 +30,8 @@ public class Notepad implements ActionListener, MenuConstants {
     /****************************/
     Notepad() {
         f = new JFrame(fileName + " - " + applicationName);
-        ta.setColumns(30);
-        ta.setRows(60);
+        ta.setColumns(60);
+        ta.setRows(30);
         statusBar = new JLabel("||       Ln 1, Col 1  ", JLabel.RIGHT);
         f.add(new JScrollPane(ta), BorderLayout.CENTER);
         f.add(statusBar, BorderLayout.SOUTH);
