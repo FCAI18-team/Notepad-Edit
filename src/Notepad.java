@@ -215,7 +215,7 @@ public class Notepad implements ActionListener, MenuConstants {
         }
         else if (cmdText.equals(editUndo)) {
             ta.undo();
-            statusBar.setText("undo done");
+            statusBar.setText("undo process done");
         } else
             statusBar.setText("This " + cmdText + " command is yet to be implemented");
     }//action Performed
