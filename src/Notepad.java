@@ -8,7 +8,7 @@ import java.util.Date;
 public class Notepad implements ActionListener, MenuConstants {
 
     JFrame f;
-    MyJTextArea ta = new MyJTextArea();
+    JTextArea ta;
     JLabel statusBar;
 
     private String fileName = "Untitled";
@@ -27,11 +27,11 @@ public class Notepad implements ActionListener, MenuConstants {
     JDialog foregroundDialog = null;
     JMenuItem cutItem, copyItem, deleteItem, findItem, findNextItem,
             replaceItem, gotoItem, selectAllItem;
+
     /****************************/
     Notepad() {
         f = new JFrame(fileName + " - " + applicationName);
-        ta.setColumns(30);
-        ta.setRows(60);
+        ta = new JTextArea(30, 60);
         statusBar = new JLabel("||       Ln 1, Col 1  ", JLabel.RIGHT);
         f.add(new JScrollPane(ta), BorderLayout.CENTER);
         f.add(statusBar, BorderLayout.SOUTH);
@@ -89,6 +89,15 @@ public class Notepad implements ActionListener, MenuConstants {
             }
         };
         f.addWindowListener(frameClose);
+//////////////////
+/*
+ta.append("Hello dear hello hi");
+ta.append("\nwho are u dear mister hello");
+ta.append("\nhello bye hel");
+ta.append("\nHello");
+ta.append("\nMiss u mister hello hell");
+fileHandler.saved=true;
+*/
     }
 
     ////////////////////////////////////
@@ -212,14 +221,9 @@ public class Notepad implements ActionListener, MenuConstants {
         else if (cmdText.equals(helpAboutNotepad)) {
             JOptionPane.showMessageDialog(Notepad.this.f, aboutText, "Dedicated 2 u!",
                     JOptionPane.INFORMATION_MESSAGE);
-        }
-        else if (cmdText.equals(editUndo)) {
-            ta.undo();
-            statusBar.setText("undo done");
         } else
             statusBar.setText("This " + cmdText + " command is yet to be implemented");
     }//action Performed
-
 
     ////////////////////////////////////
     void showBackgroundColorDialog() {
@@ -323,7 +327,7 @@ public class Notepad implements ActionListener, MenuConstants {
         createMenuItem(fileExit, KeyEvent.VK_X, fileMenu, this);
 
         temp = createMenuItem(editUndo, KeyEvent.VK_U, editMenu, KeyEvent.VK_Z, this);
-        temp.setEnabled(true);
+        temp.setEnabled(false);
         editMenu.addSeparator();
         cutItem = createMenuItem(editCut, KeyEvent.VK_T, editMenu, KeyEvent.VK_X, this);
         copyItem = createMenuItem(editCopy, KeyEvent.VK_C, editMenu, KeyEvent.VK_C, this);
