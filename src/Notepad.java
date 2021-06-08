@@ -215,8 +215,11 @@ public class Notepad implements ActionListener, MenuConstants {
         }
         else if (cmdText.equals(editUndo)) {
             ta.undo();
-            statusBar.setText("undo process done");
-        } else
+            //statusBar.setText("undo process done");
+        } else if(cmdText.equals(editRedo)) {
+            ta.redo();
+        }
+        else
             statusBar.setText("This " + cmdText + " command is yet to be implemented");
     }//action Performed
 
@@ -322,6 +325,8 @@ public class Notepad implements ActionListener, MenuConstants {
         createMenuItem(fileExit, KeyEvent.VK_X, fileMenu, this);
 
         temp = createMenuItem(editUndo, KeyEvent.VK_U, editMenu, KeyEvent.VK_Z, this);
+        temp.setEnabled(true);
+        temp = createMenuItem(editRedo, KeyEvent.VK_U, editMenu, KeyEvent.VK_Y, this);
         temp.setEnabled(true);
         editMenu.addSeparator();
         cutItem = createMenuItem(editCut, KeyEvent.VK_T, editMenu, KeyEvent.VK_X, this);

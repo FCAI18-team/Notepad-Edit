@@ -17,6 +17,7 @@ interface MenuConstants
     final String fileExit="Exit";
 
     final String editUndo="Undo";
+    final String editRedo="Redo";
     final String editCut="Cut";
     final String editCopy="Copy";
     final String editPaste="Paste";

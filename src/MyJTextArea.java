@@ -21,7 +21,7 @@ class MyJTextArea extends JTextArea implements UndoableEditListener, FocusListen
     public MyJTextArea() {
         this(new String());
         undoManager = new UndoManager();
-        undoManager.setLimit(20);
+        undoManager.setLimit(100);
     }
 
     public MyJTextArea(String text) {
